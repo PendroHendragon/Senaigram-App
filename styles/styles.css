@@ -1,0 +1,12 @@
+.card{
+
+
+    width: 45%;
+}
+
+
+@media only screen and (max-width:960px) {
+    .card{
+        width:100%;
+    }
+}
