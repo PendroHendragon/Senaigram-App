@@ -1,7 +1,7 @@
 
 import {useRouter} from 'next/router'
-
-
+import ProfileComponent from '../src/components/profileComponent';
+import {Main} from '../src/components/styles'
 
 
 
@@ -17,7 +17,9 @@ function Profile(){
  
 
 
-    return (<div>{id.user===undefined?<p>not user</p>:<h1>{id.user}</h1>}</div>);
+    return (<Main>
+        {id.user===undefined?<div>not user</div>:<ProfileComponent user={id.user} />}
+        </Main>);
 }
 
 
