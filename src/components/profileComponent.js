@@ -1,6 +1,7 @@
 import AppService from "../services/appService";
 import {useState,useEffect} from "react";
 import Image from "next/image";
+import Link from "next/link";
 import userIcon from "../../public/user-icon.png";
 
 
@@ -10,7 +11,7 @@ export default function ProfileComponent({user}){
 
     const [data,setData] = useState([{photos:[
         {url:""}
-    ]
+    ],email:"NOT A USER"
         
     }]);
 
@@ -38,7 +39,7 @@ export default function ProfileComponent({user}){
     }
     return (
         <div>
-            <div style={{padding:"10px 10px",borderRadius:"5px 5px 0px 0px", backgroundColor:"white",textAlign:"left",display:"flex",alignItems:"center",borderBottom:"2px solid black",justifyContent:"space-between"}}><Image src={userIcon} width="90px" height="90px" /><h2 style={{margin:"0px 5px"}}>{data.email}</h2></div>
+            <div style={{padding:"10px 10px",borderRadius:"5px 5px 0px 0px", backgroundColor:"white",textAlign:"left",display:"flex",alignItems:"center",borderBottom:"2px solid black",justifyContent:"space-between"}}><Image src={userIcon} width="90px" height="90px" /><h2 style={{margin:"0px 5px"}}>{data.email!=undefined?<span>{data.email}</span>:<span>NOT A USER</span>}</h2></div>
             <div style={style}>
                 
                 {data.photos && data.photos.map((data,index)=>{

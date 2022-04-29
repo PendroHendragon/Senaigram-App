@@ -16,19 +16,44 @@ class AppService{
     async loadUser(name){
         return await axios.get(CONFIG_VAR.BASE_URL+`users/${name}`).then((response)=>{
             if(response.data==[]){
-                return [{photos:[{url:""}]}];
+                return [{photos:[{url:""}],email:""}];
             }else{
-                return(response.data);
+                if(response.data.statusCode==404){
+                    console.log('error');
+                    return [{photos:[{url:""}],email:""}];
+
+                }else{
+                    return(response.data);
+                }
+                
             }
             
 
             
-        }).catch((error)=>{console.log(error)});
+        }).catch((error)=>{return [{photos:[{url:""}],user:{email:"NOT A USER"}}];});
     }
     async loadPhotos(){
         return await axios.get(CONFIG_VAR.BASE_URL+`photos`).then((response)=>{
             return(response.data);
         }).catch((error)=>{console.log(error)});
+    }
+    async loadPhotoById(id){
+        return await axios.get(CONFIG_VAR.BASE_URL+`photos/${id}`).then((response)=>{
+            if(response.data==[]){
+                return [{photos:[{url:"",}],user:{email:""}}];
+            }else{
+                if(response.data.statusCode==404){
+                    console.log('error');
+                    return [{photos:[{url:""}],user:{email:""}}];
+
+                }else{
+                    return(response.data);
+                }
+                
+            }
+
+            
+        }).catch((error)=>{return [{photos:[{url:""}],user:{email:""}}];});
     }
 }
 
