@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 
 const Main = styled.div`
-    width:400px;
+    width:700px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     margin:20px auto;
     text-align:center;
+    height: auto;
 
 
     @media(max-width:900px){

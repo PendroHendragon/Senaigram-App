@@ -1,6 +1,9 @@
 import AppService from "../services/appService";
 import {useState,useEffect} from "react";
 import Image from "next/image";
+import userIcon from "../../public/user-icon.png";
+
+
 
 
 export default function ProfileComponent({user}){
@@ -15,23 +18,35 @@ export default function ProfileComponent({user}){
 
     
     useEffect(()=>{
-        app.loadUser(user).then((data)=>{ setData(data)}).catch((error)=>console.log(error)); 
+        app.loadUser(user).then((data)=>{setData(data)}).catch((error)=>console.log(error)); 
 
         
     },[]);
-    console.log(data[0].photos)
     const dados = () =>{
 
     }
-
+    const style = {
+        display: "flex",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        backgroundColor:"white",
+        padding:"10px",
+        borderRadius:"0px 0px 5px 5px"
+    }
+    const imageStyle = {
+        borderRadius: "50%"
+    }
     return (
         <div>
-            <div>
-                {data[0].photos && data[0].photos.map((data,index)=>{
+            <div style={{padding:"10px 10px",borderRadius:"5px 5px 0px 0px", backgroundColor:"white",textAlign:"left",display:"flex",alignItems:"center",borderBottom:"2px solid black",justifyContent:"space-between"}}><Image src={userIcon} width="90px" height="90px" /><h2 style={{margin:"0px 5px"}}>{data.email}</h2></div>
+            <div style={style}>
+                
+                {data.photos && data.photos.map((data,index)=>{
                     console.log(data.url)
-                    return data.url && <Image src={data.url} width="100px" height="100px" key={index}/>
+                    return data.url && <div style={{margin:"0px 0px 10px 0px"}}><Image src={data.url} width="150px" height="150px" key={index} /></div>
 
                 })}
+                {}
                 
             </div>
         </div>
