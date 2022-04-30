@@ -38,22 +38,11 @@ class AppService{
         }).catch((error)=>{console.log(error)});
     }
     async loadPhotoById(id){
-        return await axios.get(CONFIG_VAR.BASE_URL+`photos/${id}`).then((response)=>{
-            if(response.data==[]){
-                return [{photos:[{url:"",}],user:{email:""}}];
-            }else{
-                if(response.data.statusCode==404){
-                    console.log('error');
-                    return [{photos:[{url:""}],user:{email:""}}];
-
-                }else{
-                    return(response.data);
-                }
-                
-            }
+        return await axios.get(CONFIG_VAR.BASE_URL+"photos/"+id).then((response)=>{
+            return response.data;
 
             
-        }).catch((error)=>{return [{photos:[{url:""}],user:{email:""}}];});
+        }).catch((error)=>{console.log(error)});
     }
 }
 

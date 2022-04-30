@@ -73,7 +73,8 @@ export default function App() {
               </Link>
             </div>
             <div style={{height:"auto"}}>
-              <Image src={dataset.url} alt={dataset.text} width="550px" height="450px" />
+              <Link href={"/photo?photo="+dataset.id}><a><Image src={dataset.url} alt={dataset.text} width="550px" height="450px" /></a></Link>
+              
             </div>
             
             <div style={body}>
