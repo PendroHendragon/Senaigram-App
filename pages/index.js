@@ -4,6 +4,7 @@ import AppService from "../src/services/appService";
 import { useState, useEffect } from 'react';
 import Image from "next/image";
 import userIcon from "../public/user-icon.png"
+import Head from "next/head";
 
 
 export default function App() {
@@ -57,6 +58,9 @@ export default function App() {
   }
   return (
     <div style={style}>
+      <Head>
+        <title>SENAIGRAM</title>
+      </Head>
       <div>
         <h1>SENAIGRAM APP</h1>
       </div>

@@ -10,15 +10,26 @@
   },
   "dependencies": {
     "axios": "^0.27.1",
-    "babel-preset-next": "^1.4.0",
-    "next": "12.1.5",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
+    "next": "^12.1.5",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "styled-components": "^5.3.5",
     "swiper": "^8.1.4"
   },
   "devDependencies": {
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PendroHendragon/Senaigram-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PendroHendragon/Senaigram-App/issues"
+  },
+  "homepage": "https://github.com/PendroHendragon/Senaigram-App#readme"
 }
